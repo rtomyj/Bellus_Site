@@ -1,10 +1,11 @@
+import 'typeface-roboto'
+
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import MenuIcon from '@material-ui/icons/Menu'
 import { withStyles } from '@material-ui/core/styles';
 
-import 'typeface-roboto'
 import { Typography, Menu, MenuItem, MenuList, IconButton, Toolbar, AppBar } from '@material-ui/core';
 import grey from '@material-ui/core/colors/grey'
 
@@ -23,14 +24,9 @@ const styles = {
 		color: grey[100],
 		variant: 'subtitle1'
 	},
-	NavBar: {
-		maxWidth: '1500px',
-		margin: '0 auto',
-
-	}
 };
 
-class NavBar extends Component{
+class NavBar extends Component {
 	constructor() {
 		super()
 		this.state = {
@@ -66,7 +62,7 @@ class NavBar extends Component{
 		const { classes } = this.props;
 
 		return(
-			<AppBar className={classes.NavBar} position='static'>
+			<AppBar position='static'>
 				<Toolbar>
 					<IconButton 
 						className={classes.menuButton} 
