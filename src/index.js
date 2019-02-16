@@ -9,6 +9,12 @@ import About from './components/About.js'
 
 
 class Home extends React.Component{
+	constructor() {
+		super()
+		this.state = {
+			currentPage: 'About'
+		}
+	}
 
 	render() {
 		return(
@@ -16,7 +22,8 @@ class Home extends React.Component{
 				<NavBar />
 				<br />
 
-				<About />
+				{this.state.currentPage === 'About' ? <About /> : null}
+				<p>test string</p>
 			</div>
 		)
 	}
