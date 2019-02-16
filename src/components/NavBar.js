@@ -47,6 +47,9 @@ class NavBar extends Component {
 	}
 
 	menuItemClick() {
+		this.setState({
+			menuAnchor: null,
+		})
 
 	}
 
@@ -82,12 +85,13 @@ class NavBar extends Component {
 						anchorEl={this.state.menuAnchor}
 						onClose={this.closeMenu} >
 
-						<MenuList>
-							<MenuItem onClick={this.menuItemClick}>Test</MenuItem>
-						</MenuList>
+						<MenuItem onClick={this.menuItemClick}>Home</MenuItem>
+						<MenuItem onClick={this.menuItemClick}>Gallery</MenuItem>
+						<MenuItem onClick={this.menuItemClick}>Book An Appointment</MenuItem>
+						<MenuItem onClick={this.menuItemClick}>About</MenuItem>
 					</Menu>
 					
-					<Typography className={classes.barTextColor} variant='h6' >Bellus Cosmetics</Typography>
+					<Typography className={classes.barTextColor} variant='h6' >Bellus Cosmetology Services</Typography>
 
 				</Toolbar>
 			</AppBar>
