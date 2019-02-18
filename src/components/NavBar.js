@@ -24,11 +24,8 @@ const styles = createMuiTheme({
 });
 
 class NavBar extends Component {
-	constructor() {
-		super()
-		this.state = {
-			menuAnchor: null,
-		}
+	state = {
+		menuAnchor: null,
 	}
 
 

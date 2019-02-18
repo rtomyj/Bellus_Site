@@ -9,16 +9,11 @@ import About from './components/About.js'
 
 
 class Home extends React.Component{
-	constructor() {
-		super()
-		this.state = {
-			currentPage: 'About'
-		}
-
-		this.switchPage = this.switchPage.bind(this)
+	state = {
+		currentPage: 'About'
 	}
 
-	switchPage(newPage) {
+	switchPage = (newPage) => {
 		this.setState({
 			currentPage: newPage
 		})
