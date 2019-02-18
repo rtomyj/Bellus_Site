@@ -14,16 +14,33 @@ class Home extends React.Component{
 		this.state = {
 			currentPage: 'About'
 		}
+
+		this.switchPage = this.switchPage.bind(this)
+	}
+
+	switchPage(newPage) {
+		this.setState({
+			currentPage: newPage
+		})
 	}
 
 	render() {
+		const wrapper ={
+			marginTop: '15px'
+		}
+
+
 		return(
 			<div >
-				<NavBar />
-				<br />
+				<NavBar 
+					switchPage={this.switchPage} 
+					currentPage={this.state.currentPage}
+				/>
 
-				{this.state.currentPage === 'About' ? <About /> : null}
-				<p>test string</p>
+				<div style={wrapper} >			
+					{this.state.currentPage === 'About' ? <About /> : null}
+				</div>
+
 			</div>
 		)
 	}
