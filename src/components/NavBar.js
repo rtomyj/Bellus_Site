@@ -3,28 +3,25 @@ import 'typeface-roboto'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import MenuIcon from '@material-ui/icons/Menu'
 import { withStyles } from '@material-ui/core/styles';
 
-import { Typography, Menu, MenuItem, MenuList, IconButton, Toolbar, AppBar } from '@material-ui/core';
-import grey from '@material-ui/core/colors/grey'
+import { Typography, Toolbar, AppBar, Button, createMuiTheme } from '@material-ui/core';
+import { grey, deepPurple } from '@material-ui/core/colors'
 
-const styles = {
-	root: {
-		flexGrow: 1,
+const styles = createMuiTheme({
+	bar: {
+		background: deepPurple['500'],
 	},
 	grow: {
 		flexGrow: 1,
 	},
-	menuButton: {
-		marginLeft: -12,
-		marginRight: 20,
-	},
 	barTextColor: {
-		color: grey[100],
-		variant: 'subtitle1'
+		color: grey[100]
 	},
-};
+	theCurrentPage: {
+		background: deepPurple[400],
+	}
+});
 
 class NavBar extends Component {
 	constructor() {
@@ -32,31 +29,6 @@ class NavBar extends Component {
 		this.state = {
 			menuAnchor: null,
 		}
-
-		this.menuItemClick = this.menuItemClick.bind(this)
-		this.menuClick = this.menuClick.bind(this)
-		this.closeMenu = this.closeMenu.bind(this)
-	}
-
-
-	menuClick(event) {
-		this.setState({
-			menuAnchor: event.currentTarget
-		})
-		console.log('i work')
-	}
-
-	menuItemClick() {
-		this.setState({
-			menuAnchor: null,
-		})
-
-	}
-
-	closeMenu(event) {
-		this.setState({
-			menuAnchor: null,
-		})
 	}
 
 
@@ -65,33 +37,37 @@ class NavBar extends Component {
 		const { classes } = this.props;
 
 		return(
-			<AppBar position='static'>
+			<AppBar position='static' className={[classes.grow, classes.bar].join(' ')} >
 				<Toolbar>
-					<IconButton 
-						className={classes.menuButton} 
-						color="inherit" 
-						aria-owns={this.state.menuAnchor ? 'simple-menu' : undefined}
-						aria-haspopup="true"
-						onClick={this.menuClick}
-						>
+					<Typography className={[classes.barTextColor, classes.grow].join(' ')} variant='h6' >Bellus Cosmetology Services</Typography>
 
-							<MenuIcon />
+					<Button 
+						color='inherit' 
+						className={this.props.currentPage === 'Home' ? classes.theCurrentPage : null} 
+						onClick={() => {this.props.switchPage('Home') }} >
+					Home
+					</Button>
 
-					</IconButton>
+					<Button 
+						color='inherit' 
+						className={this.props.currentPage === 'Gallery' ? classes.theCurrentPage : null} 
+						onClick={() => {this.props.switchPage('Gallery') }} >
+						Gallery
+					</Button>
 
-					<Menu
-						id='nav-menu'
-						open={Boolean(this.state.menuAnchor)}
-						anchorEl={this.state.menuAnchor}
-						onClose={this.closeMenu} >
+					<Button 
+						color='inherit' 
+						className={this.props.currentPage === 'Appointments' ? classes.theCurrentPage : null} 
+						onClick={() => {this.props.switchPage('Appointments') }} >
+						Appointments
+					</Button>
 
-						<MenuItem onClick={this.menuItemClick}>Home</MenuItem>
-						<MenuItem onClick={this.menuItemClick}>Gallery</MenuItem>
-						<MenuItem onClick={this.menuItemClick}>Book An Appointment</MenuItem>
-						<MenuItem onClick={this.menuItemClick}>About</MenuItem>
-					</Menu>
-					
-					<Typography className={classes.barTextColor} variant='h6' >Bellus Cosmetology Services</Typography>
+					<Button 
+						color='inherit' 
+						className={this.props.currentPage === 'About' ? classes.theCurrentPage : null} 
+						onClick={() => {this.props.switchPage('About') }} >
+						About
+					</Button>
 
 				</Toolbar>
 			</AppBar>
