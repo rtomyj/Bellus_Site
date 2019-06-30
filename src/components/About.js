@@ -6,7 +6,7 @@ import { Typography, Grid } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 import roseImage from '../res/about_rose.png'
-import { yellow, deepOrange } from '@material-ui/core/colors';
+import { deepOrange } from '@material-ui/core/colors';
 
 const styles = {
 	summaryText: {

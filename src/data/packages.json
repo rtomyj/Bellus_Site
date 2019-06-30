@@ -1,0 +1,15 @@
+[
+	{
+		"single": 
+		{
+			"price": 80,
+			"desc": "One person job that includes lashes"
+		},
+
+		"group": 
+		{
+			"price": 60,
+			"desc": "That is 60 per person. Save money by grouping."
+		}
+	}
+]

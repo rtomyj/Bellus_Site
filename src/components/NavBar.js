@@ -18,7 +18,7 @@ const styles = createMuiTheme({
 	barTextColor: {
 		color: grey[100]
 	},
-	theCurrentPage: {
+	currentPageHilight: {
 		background: deepPurple[400],
 	}
 });
@@ -36,32 +36,32 @@ class NavBar extends Component {
 		return(
 			<AppBar position='static' className={[classes.grow, classes.bar].join(' ')} >
 				<Toolbar>
-					<Typography className={[classes.barTextColor, classes.grow].join(' ')} variant='h6' >Bellus Cosmetology Services</Typography>
+					<Typography className={[classes.barTextColor, classes.grow].join(' ')} variant='h6' >Bellus Cosmetology</Typography>
 
 					<Button 
 						color='inherit' 
-						className={this.props.currentPage === 'Home' ? classes.theCurrentPage : null} 
+						className={this.props.currentPage === 'Home' ? classes.currentPageHilight : null} 
 						onClick={() => {this.props.switchPage('Home') }} >
 					Home
 					</Button>
 
 					<Button 
 						color='inherit' 
-						className={this.props.currentPage === 'Gallery' ? classes.theCurrentPage : null} 
+						className={this.props.currentPage === 'Gallery' ? classes.currentPageHilight : null} 
 						onClick={() => {this.props.switchPage('Gallery') }} >
 						Gallery
 					</Button>
 
 					<Button 
 						color='inherit' 
-						className={this.props.currentPage === 'Appointments' ? classes.theCurrentPage : null} 
+						className={this.props.currentPage === 'Appointments' ? classes.currentPageHilight : null} 
 						onClick={() => {this.props.switchPage('Appointments') }} >
 						Appointments
 					</Button>
 
 					<Button 
 						color='inherit' 
-						className={this.props.currentPage === 'About' ? classes.theCurrentPage : null} 
+						className={this.props.currentPage === 'About' ? classes.currentPageHilight : null} 
 						onClick={() => {this.props.switchPage('About') }} >
 						About
 					</Button>
@@ -74,6 +74,7 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
 	classes: PropTypes.object.isRequired,
+	currentPage: PropTypes.string.isRequired,
 };
 
 
